@@ -956,7 +956,7 @@ var DomainLeaf = DomainNode.extend({
         var values = _.isArray(this.value) ? this.value.slice() : [];
         var val = this.$(e.currentTarget).data("value");
 
-        var index = values.indexOf(val);
+        var index = values.map(String).indexOf(String(val));
         if (index >= 0) {
             values.splice(index, 1);
             _.defer(this._changeValue.bind(this, values));
